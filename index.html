@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurik's Live Code Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div class="container">
+    <div class="left">
+        <label><img src="HTML5_Logo.png" width="15px">HTML</label>
+        <textarea id="html-code" onkeyup="run()"></textarea>
+        
+        <label><img src="CSS_Logo.jpg" width="15px"> CSS</label>
+        <textarea id="css-code"  onkeyup="run()"></textarea>
+        
+        <label><img src="JS_Logo.png" width="15px"> JavaScript</label>
+        <textarea id="js-code"  onkeyup="run()"></textarea>
+
+    </div>
+    <div class="right">
+        <label id="output_lbl"><img src="Play_Logo.jpg" width="30px" id="output_img"> Output</label>
+        <iframe id="output"></iframe>
+    </div>
+</div>
+
+<script>
+
+    function run(){
+        let htmlCode = document.getElementById("html-code").value;
+        let cssCode = document.getElementById("css-code").value;
+        let jsCode = document.getElementById("js-code").value;
+        let output = document.getElementById("output");
+    
+        output.contentDocument.body.innerHTML = htmlCode + "<style>" +cssCode+ "</style>";
+        output.contentWindow.eval(jsCode);
+    }
+
+</script>
+
+</body>
+</html>
